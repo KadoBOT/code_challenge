@@ -10,7 +10,7 @@ var port = process.env.PORT || 3001
 
 if (TARGET === 'start' || !TARGET) {
   module.exports = {
-    devtool: 'eval',
+    devtool: 'source-map',
     entry: [
         'react-hot-loader/patch',
         'babel-polyfill',
@@ -32,6 +32,12 @@ if (TARGET === 'start' || !TARGET) {
       }),
     ],
     resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      modulesDirectories: [
+        'src',
+        'node_modules',
+      ],
+      extensions: ['', '.js', '.jsx'],
       alias: {
         'commons': path.resolve(__dirname, 'src', 'commons'),
         'components': path.resolve(__dirname, 'src', 'components'),
@@ -41,7 +47,6 @@ if (TARGET === 'start' || !TARGET) {
         'helpers': path.resolve(__dirname, 'src', 'helpers'),
         'react': path.resolve(__dirname, 'node_modules', 'react'),
       },
-      extensions: ['', '.js', '.jsx'],
     },
     resolveLoader: {
       'fallback': path.resolve(__dirname, 'node_modules'),

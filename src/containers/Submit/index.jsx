@@ -1,45 +1,33 @@
 import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
 
-import { submitData } from 'actions'
 import Loading from 'commons/Loading'
 import formatPayload from 'helpers/formatPayload'
 
-let Submit = ({ onClick, state }) => {
-  const submit = e => onClick(state, e)
+const Submit = (props) => {
+  const { submitdata, submitData } = props
+  const onClick = (e) => {
+    e.preventDefault()
+    submitData(props)
+  }
 
   return (
     <div>
-      <Loading isLoading={state.submitdata.isFetching} />
-      <button onClick={submit}>Submit</button>
-      {state.submitdata.message && <pre>{JSON.stringify(state.submitdata.message)} at {new Date().toUTCString()}</pre>}
+      <Loading isLoading={submitdata.isFetching} />
+      <button onClick={onClick}>Submit</button>
+      {submitdata.message && <pre>{JSON.stringify(submitdata.message)} at {new Date().toUTCString()}</pre>}
       <br />
-      {state.submitdata.message && <pre>Payload:<br/>{JSON.stringify(formatPayload(state), null, ' ')}</pre>}
+      {submitdata.message && <pre>Payload:<br/>{JSON.stringify(formatPayload(props), null, ' ')}</pre>}
     </div>
   )
 }
 
-const mapStateToProps = state => ({
-  state,
-})
-
-const mapDispatchToProps = dispatch => ({
-  onClick: (payload, e) => {
-    e.preventDefault()
-    dispatch(submitData(payload))
-  },
-})
-
 Submit.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  state: PropTypes.shape({
-    submitData: PropTypes.shape({
-      isFetching: PropTypes.bool.isRequired,
-      message: PropTypes.string.isRequired,
-    }),
+  submitData: PropTypes.func.isRequired,
+  submitdata: PropTypes.shape({
+    isFetching: PropTypes.bool.isRequired,
+    message: PropTypes.string.isRequired,
   }),
 }
 
-Submit = connect(mapStateToProps, mapDispatchToProps)(Submit)
 
 export default Submit

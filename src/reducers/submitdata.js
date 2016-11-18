@@ -1,10 +1,4 @@
-const initialState = {
-  success: false,
-  message: '',
-  isFetching: false,
-}
-
-const submitdata = (state = initialState, action) => {
+const submitdata = (state = {}, action) => {
   switch (action.type) {
     case 'SUBMIT_SUCCESS':
       return { message: 'Data sent successfully', success: true, isFetching: false }

@@ -1,55 +1,41 @@
 import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
 
-import { inputText, handleRequest } from 'actions'
 import NextButton from 'commons/NextButton/'
 import Loading from 'commons/Loading'
 
-let TextField = ({ onChange, onSubmit, state }) => {
-  const handleSubmit = e => onSubmit(state.value, e)
+const TextField = ({ inputText, handleRequest, textfield }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    handleRequest(textfield.value)
+  }
+  const onChange = e => inputText(e.target.value)
 
   return (
     <form onSubmit={handleSubmit}>
-      <Loading isLoading={state.isFetching} />
+      <Loading isLoading={textfield.isFetching} />
       <input
         aria-label="textfield"
         onChange={onChange}
         type="text"
-        value={state.value}
+        value={textfield.value}
       />
       <button type="submit">Check</button>
-      <NextButton disabled={!state.success} />
+      <NextButton disabled={!textfield.success} />
       <br />
-      <span style={{ color: 'red' }}>{state.err}</span>
+      <span style={{ color: 'red' }}>{textfield.err}</span>
     </form>
   )
 }
 
-const mapStateToProps = state => ({
-  state: state.textfield,
-})
-
-const mapDispatchToProps = dispatch => ({
-  onChange: (e) => {
-    dispatch(inputText(e.target.value))
-  },
-  onSubmit: (value, e) => {
-    e.preventDefault()
-    dispatch(handleRequest(value))
-  },
-})
-
 TextField.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  state: PropTypes.shape({
+  handleRequest: PropTypes.func.isRequired,
+  inputText: PropTypes.func.isRequired,
+  textfield: PropTypes.shape({
     value: PropTypes.string.isRequired,
     success: PropTypes.bool.isRequired,
     err: PropTypes.string,
     isFetching: PropTypes.bool.isRequired,
   }).isRequired,
 }
-
-TextField = connect(mapStateToProps, mapDispatchToProps)(TextField)
 
 export default TextField

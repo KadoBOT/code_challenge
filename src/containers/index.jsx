@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 import Checkboxes from './Checkboxes/'
 import Toggles from './Toggles/'
@@ -15,14 +14,10 @@ const pageNum = {
   5: <Submit />,
 }
 
-let Wrapper = ({ page }) => (
-   pageNum[page]
+const Wrapper = (props) => (
+   <div>
+     { React.cloneElement(pageNum[props.page], props) }
+   </div>
 )
-
-const mapStateToProps = state => ({
-  page: state.page,
-})
-
-Wrapper = connect(mapStateToProps)(Wrapper)
 
 export default Wrapper

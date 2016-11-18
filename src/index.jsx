@@ -1,17 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import { AppContainer } from 'react-hot-loader'
 import Redbox from 'redbox-react'
 import a11y from 'react-a11y'
 import { whyDidYouUpdate } from 'why-did-you-update'
+import { AppContainer } from 'react-hot-loader'
 
-import App from 'components'
-import reducer from 'reducers'
-
-const store = applyMiddleware(thunk)(createStore)(reducer)
+import App from './components'
+import store from './store'
 
 const consoleErrorReporter = ({ error }) => {
   console.error(error)
@@ -38,7 +34,7 @@ render(
 
 if (module.hot) {
   module.hot.accept('./components/', () => {
-    const AppNext = require('components').defaul
+    const AppNext = require('./components').default
     render(
       <AppContainer>
         <Provider store={store}>

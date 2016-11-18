@@ -1,8 +1,3 @@
-const initialState = [
-  { name: 'A1', completed: false },
-  { name: 'A2', completed: false },
-]
-
 const checkbox = (state = {}, action) => {
   switch (action.type) {
     case 'TOGGLE_CHECK':
@@ -16,7 +11,7 @@ const checkbox = (state = {}, action) => {
   }
 }
 
-const checkboxes = (state = initialState, action) => {
+const checkboxes = (state = [], action) => {
   switch (action.type) {
     case 'TOGGLE_CHECK':
       return state.map(c => checkbox(c, action))

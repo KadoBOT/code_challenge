@@ -1,11 +1,6 @@
 import _ from 'lodash'
 
-const initialState = [
-  { name: 'B1', active: false },
-  { name: 'B2', active: false },
-]
-
-const togglebuttons = (state = initialState, action) => {
+const togglebuttons = (state = [], action) => {
   switch (action.type) {
     case 'TOGGLE_BUTTON': {
       const newState = [...state]

@@ -1,10 +1,3 @@
-const initialState = {
-  value: '',
-  success: false,
-  err: '',
-  isFetching: false,
-}
-
 const getResponse = (state, action) => {
   switch (action.type) {
     case 'HANDLE_SUCCESS':
@@ -49,7 +42,7 @@ const input = (state = '', action) => {
   }
 }
 
-const textfield = (state = initialState, action) => {
+const textfield = (state = {}, action) => {
   switch (action.type) {
     case 'HANDLE_TEXT':
       return input(state, action)
