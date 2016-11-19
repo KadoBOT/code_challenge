@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { togglePage } from 'actions'
+import { togglePage } from '../../actions'
 
 let NextButton = ({ disabled, nextPage }) => (
   <button

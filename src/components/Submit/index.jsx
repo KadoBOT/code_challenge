@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
-import Loading from 'commons/Loading'
-import formatPayload from 'helpers/formatPayload'
+import Loading from '../../commons/Loading'
+import formatPayload from '../../helpers/formatPayload'
 
 const Submit = (props) => {
   const { submitdata, submitData } = props

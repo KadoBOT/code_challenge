@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
-import NextButton from 'commons/NextButton/'
-import Loading from 'commons/Loading'
+import NextButton from '../../commons/NextButton/'
+import Loading from '../../commons/Loading'
 
 const TextField = ({ inputText, handleRequest, textfield }) => {
   const handleSubmit = (e) => {

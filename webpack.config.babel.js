@@ -38,15 +38,6 @@ if (TARGET === 'start' || !TARGET) {
         'node_modules',
       ],
       extensions: ['', '.js', '.jsx'],
-      alias: {
-        'commons': path.resolve(__dirname, 'src', 'commons'),
-        'components': path.resolve(__dirname, 'src', 'components'),
-        'containers': path.resolve(__dirname, 'src', 'containers'),
-        'actions': path.resolve(__dirname, 'src', 'actions'),
-        'reducers': path.resolve(__dirname, 'src', 'reducers'),
-        'helpers': path.resolve(__dirname, 'src', 'helpers'),
-        'react': path.resolve(__dirname, 'node_modules', 'react'),
-      },
     },
     resolveLoader: {
       'fallback': path.resolve(__dirname, 'node_modules'),

@@ -4,7 +4,9 @@
   "description": "Housing Anywhere code challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:verbose": "jest --verbose",
     "start": "node server.js"
   },
   "author": "Ricardo Ambrogi",
@@ -60,10 +62,22 @@
     "eslint-plugin-react": "^6.6.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "flow-bin": "^0.34.0",
+    "immutable": "^3.8.1",
     "jest-cli": "^16.0.2",
+    "nock": "^9.0.2",
     "react-addons-test-utils": "^15.0.2",
+    "redux-mock-store": "^1.2.1",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.10.0"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(es6|js|json)$",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
   }
 }

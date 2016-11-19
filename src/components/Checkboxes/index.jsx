@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import _ from 'lodash'
 
-import Checkbox from 'components/Checkbox'
-import NextButton from 'commons/NextButton'
+import Checkbox from './Checkbox'
+import NextButton from '../../commons/NextButton'
 
 const Checkboxes = ({ checkboxes, toggleCheck }) => {
   const checkInput = (e) => {

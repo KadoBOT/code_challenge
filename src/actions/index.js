@@ -1,4 +1,4 @@
-import formatPayload from 'helpers/formatPayload'
+import formatPayload from '../helpers/formatPayload'
 import { checkIt, submitIt } from '../api'
 
 export const TOGGLE_CHECK = 'TOGGLE_CHECK'
@@ -8,6 +8,10 @@ export const HANDLE_TEXT = 'HANDLE_TEXT'
 export const HANDLE_REQUEST = 'HANDLE_REQUEST'
 export const SELECT_ITEM = 'SELECT_ITEM'
 export const HANDLE_DATA = 'HANDLE_DATA'
+export const HANDLE_SUCCESS = 'HANDLE_SUCCESS'
+export const HANDLE_FAILURE = 'HANDLE_FAILURE'
+export const SUBMIT_SUCCESS = 'SUBMIT_SUCCESS'
+export const SUBMIT_FAILURE = 'SUBMIT_FAILURE'
 
 // /////////////////// //
 // Redux actions used  //
@@ -52,8 +56,8 @@ export const handleRequest = value => (dispatch) => {
   dispatch(submitForm())
 
   return checkIt(value)
-  .then(res => dispatch(handleResponse('HANDLE_SUCCESS', res)))
-  .catch(err => dispatch(handleResponse('HANDLE_FAILURE', err)))
+  .then(res => dispatch(handleResponse(HANDLE_SUCCESS, res)))
+  .catch(err => dispatch(handleResponse(HANDLE_FAILURE, err)))
 }
 
 // Select Box Component: handle the item selected
@@ -73,9 +77,9 @@ export const submitData = payload => (dispatch) => {
 
   return submitIt(formatPayload(payload))
   .then((res) => {
-    dispatch(handleResponse('SUBMIT_SUCCESS', res))
+    dispatch(handleResponse(SUBMIT_SUCCESS, res))
   })
   .catch((err) => {
-    dispatch(handleResponse('SUBMIT_FAILURE', err))
+    dispatch(handleResponse(SUBMIT_FAILURE, err))
   })
 }

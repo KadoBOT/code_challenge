@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import _ from 'lodash'
 
-import Toggle from 'components/Toggle'
-import NextButton from 'commons/NextButton/'
+import Toggle from './Toggle'
+import NextButton from '../../commons/NextButton/'
 
 const ToggleButton = ({ togglebuttons, toggleButton }) => {
   const onClick = e => toggleButton(e.target.name)

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import NextButton from 'commons/NextButton'
+import NextButton from '../../commons/NextButton'
 
 const SelectBox = ({ handleSelect, selectbox }) => {
   const onChange = (e) => {
