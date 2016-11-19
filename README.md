@@ -20,8 +20,8 @@
  * To run the project: ```npm start```
  * To run tests:
    * Simple: ```npm run test```
-   * Coverage: ```npm run test:coverage```
-   * Verbose: ```npm run test:verbose```
+    * Coverage: ```npm run test:coverage```
+    * Verbose: ```npm run test:verbose```
 
 
 ## Folder Structure
