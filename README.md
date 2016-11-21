@@ -1,5 +1,8 @@
 # code_challenge
 
+
+## About
+
 ##### This is a simple **React + Redux** code challenge which consists in 5 simples steps:
   1. Two Checkboxes: To continue, at least one must be selected
   2. Two Buttons: To continue, a button must be selected. If a button is selected and you click on the other button, the previous is deselected. If you click on a selected button, you deselect it.
