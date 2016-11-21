@@ -16,9 +16,9 @@
  * ```git clone https://github.com/KadoBOT/code_challenge.git```
  * ```cd code_challenge```
  * ```npm install```
- * Open browser on `http://localhost:3001`
 * Commands
  * To run the project: ```npm start```
+    * Open browser on `http://localhost:3001`
  * To run tests:
    * Simple: ```npm run test```
     * Coverage: ```npm run test:coverage```
